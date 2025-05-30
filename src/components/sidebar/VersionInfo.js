@@ -195,7 +195,7 @@ const VersionInfo = ({ isCollapsed }) => {
 
 // Separate component for the changelog modal
 const ChangelogModal = ({ isOpen, onClose, version, changelog }) => {
-    const cleanChangelog = changelog.replace(/^# Changelog\s*\n/, "");
+    const cleanChangelog = (changelog || "").replace(/^# Changelog\s*\n/, "");
     const releases = cleanChangelog
         .split(/(?=## \[)/)
         .filter((release) => release.trim() !== "");

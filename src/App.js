@@ -10,6 +10,7 @@ import {
 import { SunIcon, MoonIcon, HamburgerIcon } from "@chakra-ui/icons";
 import { useState, useEffect, useCallback } from "react";
 import { TemplateProvider } from "./utils/templates/templateContext";
+import ErrorBoundary from "./components/common/ErrorBoundary";
 import Sidebar from "./components/sidebar/Sidebar";
 import LandingPage from "./pages/LandingPage";
 import PatientDetails from "./pages/PatientDetails";
@@ -291,12 +292,14 @@ function AppContent() {
     );
 }
 
-// Wrap the entire app with TemplateProvider
+// Wrap the entire app with TemplateProvider and ErrorBoundary
 function App() {
     return (
-        <TemplateProvider>
-            <AppContent />
-        </TemplateProvider>
+        <ErrorBoundary>
+            <TemplateProvider>
+                <AppContent />
+            </TemplateProvider>
+        </ErrorBoundary>
     );
 }
 

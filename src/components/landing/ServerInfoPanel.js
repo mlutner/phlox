@@ -73,7 +73,7 @@ const ServerInfoPanel = ({
                                             {model.details?.quantization_level?.replace(
                                                 "Q4_K_M",
                                                 "Q4",
-                                            )}
+                                            ) || "N/A"}
                                         </Text>
                                     </HStack>
                                 </HStack>
